@@ -31,18 +31,330 @@
         <i class="fas fa-arrow-left"></i> Back
       </button>
     </a>    
-    <h1>Frequently Asked Questions</h1>
+    <h1>Coding Test Questions</h1>
     <div class="faq-container">
       <div class="question">
-        <h2>How do I place an order?</h2>
+        <h2>Q1 : Given a sorted array of size N and an integer K, find the position at which K is present in the array using binary search javascript. ?</h2>
         <div class="answer">
-          To place an order, add the items you would like to purchase to your cart and proceed to checkout. Enter your shipping and payment information and then submit your order.
+          function binarySearch(array, k) {
+            let left = 0;
+            let right = array.length - 1;
+            while (left <= right) {
+              const mid = left + Math.floor((right - left) / 2);
+              if (array[mid] === k) {
+                return mid;
+              } else if (array[mid] < k) {
+                left = mid + 1;
+              } else {
+                right = mid - 1;
+              }
+            }
+            return -1;
+          }
+          
+          
+          
+          const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+          const k = 5;
+          console.log(binarySearch(array, k)); // Outputs: 4
+          
         </div>
       </div>
       <div class="question">
-        <h2>What is your return policy?</h2>
+        <h2>Q2: Given an array arr[] of positive integers of size N. Reverse every sub-array group of size K. javascript?</h2>
         <div class="answer">
-          We accept returns within 30 days of the original purchase date. Items must be in their original condition and packaging. Please contact us for more information on how to process a return.
+          Ans:
+          function reverseSubArray(arr, k) {
+            for (let i = 0; i < arr.length; i += k) {
+              let left = i;
+              let right = Math.min(i + k - 1, arr.length - 1);
+              while (left < right) {
+                [arr[left], arr[right]] = [arr[right], arr[left]];
+                left++;
+                right--;
+              }
+            }
+            return arr;
+          }
+
+
+          const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+          const k = 3;
+          console.log(reverseSubArray(arr, k)); // Outputs: [3, 2, 1, 6, 5, 4, 9, 8, 7, 10]
+
+        </div>
+      </div>
+      <div class="question">
+        <h2>Q3: Given two arrays A and B of equal size N, the task is to find if given arrays are equal or not. Two arrays are said to be equal if both of them contain the same set of elements, arrangements (or permutation) of elements may be different though.?</h2>
+        <div class="answer">
+          Ans:
+
+          function areArraysEqual(arr1, arr2) {
+            if (arr1.length !== arr2.length) return false;
+            return arr1.every((val, index) => val === arr2[index]);
+          }
+
+          function areArraysEqual(arr1, arr2) {
+            return arr1.toString() === arr2.toString();
+          }
+
+        </div>
+      </div>
+      <div class="question">
+        <h2>Q4: Given an array of N integers. Find the first element that occurs at least K number of times. Javascript?</h2>
+        <div class="answer">
+          Ans:
+
+          function findFirstElement(arr, K) {
+            // Create an empty object to store the count of each element
+            const count = {};
+
+            // Iterate over the array and increment the count of each element in the count object
+            for (const element of arr) {
+              count[element] = (count[element] || 0) + 1;
+            }
+
+            // Iterate over the array again and return the first element that has a count greater than or equal to K
+            for (const element of arr) {
+              if (count[element] >= K) {
+                return element;
+              }
+            }
+
+            // If no element is found, return null
+            return null;
+          }
+
+          const arr = [1, 2, 3, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2];
+          const K = 3;
+
+          console.log(findFirstElement(arr, K)); // Output: 1…
+
+        </div>
+      </div>
+      <div class="question">
+        <h2>Q5: Given an array of size N-1 such that it only contains distinct integers in the range of 1 to N. Find the missing element. Javascript ?</h2>
+        <div class="answer">
+          Ans: 
+
+          You can use the following approach to find the missing element in the array:
+          First, calculate the sum of all the elements in the array using a for loop.
+          Then, calculate the sum of all the elements from 1 to N using a formula: (N * (N + 1)) / 2
+          Subtract the sum of the elements in the array from the sum of all the elements from 1 to N. The result will be the missing element.
+
+          function findMissingElement(arr, N) {
+            // Calculate the sum of all the elements in the array
+            let sum = 0;
+            for (let i = 0; i < arr.length; i++) {
+              sum += arr[i];
+            }
+
+            // Calculate the sum of all the elements from 1 to N
+            let expectedSum = (N * (N + 1)) / 2;
+
+            // The missing element is the difference between the two sums
+            return expectedSum - sum;
+          }
+
+          let arr = [1, 2, 3, 5, 6, 7]; // missing element is 4
+          let N = 7;
+          console.log(findMissingElement(arr, N)); // prints 4
+
+        </div>
+      </div>
+      <div class="question">
+        <h2>Q6: Given an array of size N containing only 0s, 1s, and 2s; sort the array in ascending order. Javascript?</h2>
+        <div class="answer">
+          Once your order has been shipped, you will receive an email with a tracking number. You can also track your order by logging into your account on our website.
+        </div>
+      </div>
+      <div class="question">
+        <h2>How can I track my order?</h2>
+        <div class="answer">
+          Ans: 
+
+          function sortArray(arr) {
+            let counts = [0, 0, 0];
+            for (let i = 0; i < arr.length; i++) {
+              counts[arr[i]]++;
+            }
+            let i = 0;
+            for (let j = 0; j < counts[0]; j++) {
+              arr[i++] = 0;
+            }
+            for (let j = 0; j < counts[1]; j++) {
+              arr[i++] = 1;
+            }
+            for (let j = 0; j < counts[2]; j++) {
+              arr[i++] = 2;
+            }
+            return arr;
+          }
+
+          For example, if the input array is [2, 1, 0, 2, 1, 0], the counts array will be [2, 2, 2] and the sorted array will be [0, 0, 1, 1, 2, 2].
+
+          let arr = [2, 1, 0, 2, 1, 0];
+
+          console.log(sortArray(arr));
+
+        </div>
+      </div>
+      <div class="question">
+        <h2>Q7: ​​ Given an array A of positive integers. Your task is to find the leaders in the array. An element of array is leader if it is greater than or equal to all the elements to its right side. The rightmost element is always a leader.?</h2>
+        <div class="answer">
+          Ans:
+
+          function findLeaders(arr) {
+            const leaders = [];
+            for (let i = arr.length - 1; i >= 0; i--) {
+              const x = arr[i];
+              let isLeader = true;
+              for (let j = i + 1; j < arr.length; j++) {
+                if (x <= arr[j]) {
+                  isLeader = false;
+                  break;
+                }
+              }
+              if (isLeader) {
+                leaders.push(x);
+              }
+            }
+            return leaders;
+          }
+
+
+          const arr = [16, 17, 4, 3, 5, 2];
+          console.log(findLeaders(arr)); // prints [17, 5, 2]
+
+        </div>
+      </div>
+      <div class="question">
+        <h2>Q8: Given an array A of n positive numbers. The task is to find the first Equilibrium Point in an array. 
+          Equilibrium Point in an array is a position such that the sum of elements before it is equal to the sum of elements after it.?
+          </h2>
+        <div class="answer">
+          Ans:
+
+          function findEquilibriumPoint(arr) {
+            let leftSum = 0;
+            let rightSum = 0;
+
+            // Sum all elements of the array
+            for (let i = 0; i < arr.length; i++) {
+              rightSum += arr[i];
+            }
+
+            // Iterate through the array and find the first equilibrium point
+            for (let i = 0; i < arr.length; i++) {
+              rightSum -= arr[i]; // Subtract the current element from the right sum
+
+              if (leftSum == rightSum) {
+                return i; // Return the current index as the first equilibrium point
+              }
+
+              leftSum += arr[i]; // Add the current element to the left sum
+            }
+
+            return -1; // Return -1 if no equilibrium point is found
+          }
+
+
+          let arr = [1, 3, 5, 2, 2];
+          let equilibriumPoint = findEquilibriumPoint(arr);
+
+          console.log(equilibriumPoint); // Output: 3
+
+          Actual output is coming 2 while run
+
+        </div>
+      </div>
+      <div class="question">
+        <h2>Q9: Given an array having both positive and negative integers. The task is to compute the length of the largest subarray with sum 0. Javascript?</h2>
+        <div class="answer">
+          Ans:
+
+          function maxLength(arr) {
+            const map = new Map();
+            let sum = 0;
+            let maxLength = 0;
+
+            for (let i = 0; i < arr.length; i++) {
+              sum += arr[i];
+              if (sum === 0) {
+                maxLength = i + 1;
+              }
+              if (map.has(sum)) {
+                maxLength = Math.max(maxLength, i - map.get(sum));
+              } else {
+                map.set(sum, i);
+              }
+            }
+
+            return maxLength;
+          }
+
+          const arr = [1, 2, -3, 3];
+          console.log(maxLength(arr));  // 3 (the subarray [1, 2, -3] has sum 0)
+
+        </div>
+      </div>
+      <div class="question">
+        <h2>Q10: Array Subset of another array javascript?</h2>
+        <div class="answer">
+          Ans: 
+
+
+          function isSubset(mainArr, subsetArr) {
+            return subsetArr.every(val => mainArr.includes(val));
+          }
+
+          console.log(isSubset([1, 2, 3, 4], [1, 2]));  // true
+          console.log(isSubset([1, 2, 3, 4], [1, 5]));  // false
+          console.log(isSubset([1, 2, 3, 4], [1, 2, 3, 4]));  // true
+
+          Underneath code is not working
+          This function will return true if every element in subsetArr is contained in mainArr, and false otherwise.
+          Alternatively, you can use the Array.prototype.isSubsetOf() method, which was added in JavaScript 1.8.5. This method returns a boolean indicating whether the array is a subset of the input array. Here's an example of how to use it:
+          console.log([1, 2].isSubsetOf([1, 2, 3, 4]));  // true
+          console.log([1, 5].isSubsetOf([1, 2, 3, 4]));  // false
+          console.log([1, 2, 3, 4].isSubsetOf([1, 2, 3, 4]));  // true
+
+        </div>
+      </div>
+      <div class="question">
+        <h2>How can I track my order?</h2>
+        <div class="answer">
+          Once your order has been shipped, you will receive an email with a tracking number. You can also track your order by logging into your account on our website.
+        </div>
+      </div>
+      <div class="question">
+        <h2>How can I track my order?</h2>
+        <div class="answer">
+          Once your order has been shipped, you will receive an email with a tracking number. You can also track your order by logging into your account on our website.
+        </div>
+      </div>
+      <div class="question">
+        <h2>How can I track my order?</h2>
+        <div class="answer">
+          Once your order has been shipped, you will receive an email with a tracking number. You can also track your order by logging into your account on our website.
+        </div>
+      </div>
+      <div class="question">
+        <h2>How can I track my order?</h2>
+        <div class="answer">
+          Once your order has been shipped, you will receive an email with a tracking number. You can also track your order by logging into your account on our website.
+        </div>
+      </div>
+      <div class="question">
+        <h2>How can I track my order?</h2>
+        <div class="answer">
+          Once your order has been shipped, you will receive an email with a tracking number. You can also track your order by logging into your account on our website.
+        </div>
+      </div>
+      <div class="question">
+        <h2>How can I track my order?</h2>
+        <div class="answer">
+          Once your order has been shipped, you will receive an email with a tracking number. You can also track your order by logging into your account on our website.
         </div>
       </div>
       <div class="question">
