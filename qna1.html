@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Question and Answer</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $(".question h2").click(function(){
+          $(this).next(".answer").slideToggle();
+        });
+      });
+    </script>
+    <style>
+      .back-button {
+          background-color: #086bac; /* Green */
+          color: white;
+          padding: 12px 20px;
+          margin: 12px 20px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          font-size: 18px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <a href="javascript:history.back()">
+      <button class="back-button">
+        <i class="fas fa-arrow-left"></i> Back
+      </button>
+    </a>    
+    <h1>Frequently Asked Questions</h1>
+    <div class="faq-container">
+      <div class="question">
+        <h2>How do I place an order?</h2>
+        <div class="answer">
+          To place an order, add the items you would like to purchase to your cart and proceed to checkout. Enter your shipping and payment information and then submit your order.
+        </div>
+      </div>
+      <div class="question">
+        <h2>What is your return policy?</h2>
+        <div class="answer">
+          We accept returns within 30 days of the original purchase date. Items must be in their original condition and packaging. Please contact us for more information on how to process a return.
+        </div>
+      </div>
+      <div class="question">
+        <h2>How can I track my order?</h2>
+        <div class="answer">
+          Once your order has been shipped, you will receive an email with a tracking number. You can also track your order by logging into your account on our website.
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+/*style.css*/
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1 {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .question {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .question h2 {
+    margin: 0;
+    font-size: 1.2em;
+    cursor: pointer;
+  }
+  
+  .answer {
+    padding: 10px 20px;
+    font-size: 0.9em;
+    line-height: 1.5em;
+    display: none;
+  }
+  
+  
