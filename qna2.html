@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Question and Answer</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $(".question h2").click(function(){
+          $(this).next(".answer").slideToggle();
+        });
+      });
+    </script>
+    <style>
+      .back-button {
+          background-color: #086bac; /* Green */
+          color: white;
+          padding: 12px 20px;
+          margin: 12px 20px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          font-size: 18px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <a href="javascript:history.back()">
+      <button class="back-button">
+        <i class="fas fa-arrow-left"></i> Back
+      </button>
+    </a>    
+    <h1>Coding Test Questions</h1>
+    <div class="faq-container">
+      <div class="question">
+        <h2>Q11: Given a array of N strings, find the longest common prefix among all strings present in the array. Javascript?</h2>
+        <div class="answer">
+          <pre>
+            Ans:
+
+
+            function longestCommonPrefix(strings) {
+              if (strings.length === 0) {
+                return "";
+              }
+            
+              let prefix = strings[0];
+            
+              for (let i = 1; i < strings.length; i++) {
+                while (strings[i].indexOf(prefix) !== 0) {
+                  prefix = prefix.substring(0, prefix.length - 1);
+                  if (prefix.length === 0) {
+                    return "";
+                  }
+                }
+              }
+            
+              return prefix;
+            }
+            
+            const strings = ["hello", "helix", "helios"];
+            console.log(longestCommonPrefix(strings));  // Output: "hel"
+            
+        </pre>
+        </div>
+      </div>
+      <div class="question">
+        <h2>Q:12 Given two unsorted arrays A of size N and B of size M of distinct elements, the task is to find all pairs from both arrays whose sum is equal to X. Javascript?</h2>
+        <div class="answer">
+          <pre>
+            Ans:
+
+            function findPairs(A, B, X) {
+              const pairs = [];
+              // create a set from array A for faster lookups
+              const setA = new Set(A);
+            
+              for (const b of B) {
+                const a = X - b;
+                if (setA.has(a)) {
+                  pairs.push([a, b]);
+                }
+              }
+              return pairs;
+            }
+            
+         </pre>
+        </div>
+      </div>
+      <div class="question">
+        <h2>Q13: Given two unsorted arrays A of size N and B of size M of distinct elements, the task is to find all pairs from both arrays whose sum is equal to X. Javascript example?</h2>
+        <div class="answer">
+          <pre>
+            Ans:
+
+
+            function findPairs(A, B, X) {
+              const pairs = [];
+              // create a set from array A for faster lookups
+              const setA = new Set(A);
+            
+              for (const b of B) {
+                const a = X - b;
+                if (setA.has(a)) {
+                  pairs.push([a, b]);
+                }
+              }
+              return pairs;
+            }
+            
+            // example usage
+            const A = [1, 2, 3, 4];
+            const B = [3, 4, 5, 6];
+            const X = 7;
+            
+            console.log(findPairs(A, B, X)); // [[3, 4], [4, 3]]
+            
+          </pre>
+        </div>
+      </div>
+      <div class="question">
+        <h2>Q:14  You are given two arrays, A and B, of equal size N. The task is to find the minimum value of A[0] * B[0] + A[1] * B[1] + .... + A[N-1] * B[N-1], where shuffling of elements of arrays A and B is allowed. Javascript?</h2>
+        <div class="answer">
+          <pre>
+            Ans:
+
+            function minValue(A, B) {
+              A.sort((a, b) => a - b);
+              B.sort((a, b) => a - b);
+              let result = 0;
+              for (let i = 0; i < A.length; i++) {
+                result += A[i] * B[i];
+              }
+              return result;
+            }
+            
+            A = [1, 3, 5];
+            B = [2, 4, 6];
+            console.log(minValue(A, B));  // Output: 44
+            
+            A = [1, 3, 5]
+            B = [2, 4, 6]
+            
+            Minimum value = (1*2) + (3*4) + (5*6) = 2 + 12 + 30 = 44
+            
+          </pre>
+        </div>
+      </div>
+      <div class="question">
+        <h2>Q15: Given an array Arr[] of N integers. Find the contiguous sub-array(containing at least one number) which has the maximum sum and return its sum. Javascript example?</h2>
+        <div class="answer">
+          <pre>
+            Ans:
+
+            function maxSum(arr) {
+              let maxSum = 0;
+              let currentSum = 0;
+              for (let i = 0; i < arr.length; i++) {
+                currentSum += arr[i];
+                if (currentSum > maxSum) {
+                  maxSum = currentSum;
+                } else if (currentSum < 0) {
+                  currentSum = 0;
+                }
+              }
+              return maxSum;
+            }
+            
+            console.log(maxSum([-2, 1, -3, 4, -1, 2, 1, -5, 4]));  // Outputs: 6 (the subarray is [4, -1, 2, 1])
+            
+          </pre>
+        </div>
+      </div>
+      <div class="question">
+        <h2>Q16:  Given an array of N integers arr[] where each element represents the max length of the jump that can be made forward from that element. Find the minimum number of jumps to reach the end of the array (starting from the first element). If an element is 0, then you cannot move through that element. Javascript.?</h2>
+        <div class="answer">
+          <pre>
+          Ans:
+
+          function minimumJumps(arr) {
+            // Edge case: if the first element is 0, we can't move forward
+            if (arr[0] === 0) {
+              return -1;
+            }
+
+            // Initialize variables to keep track of our progress
+            let jumps = 0;
+            let currentPosition = 0;
+            let nextPosition = 0;
+
+            // Iterate through the array
+            while (currentPosition < arr.length - 1) {
+              jumps++;
+
+              // Find the farthest position we can reach from the current position
+              for (let i = currentPosition + 1; i <= currentPosition + arr[currentPosition] && i < arr.length; i++) {
+                if (i + arr[i] > nextPosition) {
+                  nextPosition = i;
+                }
+              }
+
+              // If we couldn't move forward, return -1
+              if (currentPosition === nextPosition) {
+                return -1;
+              }
+
+              // Move to the next position
+              currentPosition = nextPosition;
+            }
+
+            // Return the minimum number of jumps
+            return jumps;
+          }
+
+
+          console.log(minimumJumps([2, 3, 1, 1, 4]));  // Output: 2
+          console.log(minimumJumps([1, 1, 1, 1, 1]));  // Output: 4
+          console.log(minimumJumps([5, 4, 3, 2, 1]));  // Output: 1
+          console.log(minimumJumps([0, 1, 1, 1, 1]));  // Output: -1
+          </pre>
+        </div>
+      </div>
+      <div class="question">
+        <h2>Q17:  Given an array arr[] denoting heights of N towers and a positive integer K.
+
+          For each tower, you must perform exactly one of the following operations exactly once.
+          
+          Increase the height of the tower by K
+          Decrease the height of the tower by K
+          Find out the minimum possible difference between the height of the shortest and tallest towers after you have modified each tower. Javascript?
+          </h2>
+        <div class="answer">
+          <pre>
+            Ans:
+
+            function minDifference(arr, k) {
+              // sort the array in non-ascending order
+              arr.sort((a, b) => b - a);
+            
+              // perform one of the operations on each element to minimize the difference
+              // between consecutive elements
+              for (let i = 1; i < arr.length; i++) {
+                const diff = arr[i] - arr[i-1];
+                if (diff > k) {
+                  arr[i] -= k;
+                } else if (diff < k) {
+                  arr[i] += k;
+                }
+              }
+              
+              // return the difference between the first and last elements
+              return arr[0] - arr[arr.length - 1];
+            }
+            
+            
+            minDifference([1, 5, 8], 2);
+            // Output: 6
+            // The minimum difference between the tallest and shortest towers is 6, which can be achieved by increasing the height of the first tower by 2, decreasing the height of the second tower by 2, and decreasing the height of the third tower by 2.
+            
+            minDifference([1, 5, 8], 4);
+            // Output: 2
+            // The minimum difference between the tallest and shortest towers is 2, which can be achieved by decreasing the height of the second tower by 4 and decreasing the height of the third tower by 4.
+            
+            minDifference([1, 5, 8], 6);
+            // Output: 0
+            // The minimum difference between the tallest and shortest towers is 0, which can be achieved by decreasing the height of the second tower by 6 and decreasing the height of the third tower by 6.
+            
+            minDifference([1, 5, 8], 8);
+            // Output: 0
+            // The minimum difference between the tallest and shortest towers is 0, which can be achieved by decreasing the height of the second tower by 8 and decreasing the height of the third tower by 8.
+            
+          </pre>
+        </div>
+      </div>
+      <div class="question">
+        <h2>Q18: Given an array arr[] and an integer K where K is smaller than size of array, the task is to find the Kth smallest element in the given array. It is given that all array elements are distinct. Javascript?</h2>
+        <div class="answer">
+          <pre>
+            Ans:
+
+
+            function kthSmallest(arr, k) {
+              arr.sort(function(a, b){return a-b});
+              return arr[k-1];
+            }
+            
+            let arr = [3,1,2,4,5];
+            let k = 3;
+            console.log(kthSmallest(arr, k)); // Output: 3
+            
+          </pre>
+        </div>
+      </div>
+      <div class="question">
+        <h2>Q8: Given an array A of n positive numbers. The task is to find the first Equilibrium Point in an array. 
+          Equilibrium Point in an array is a position such that the sum of elements before it is equal to the sum of elements after it.?
+          </h2>
+        <div class="answer">
+          <pre>
+          Ans:
+
+          function findEquilibriumPoint(arr) {
+            let leftSum = 0;
+            let rightSum = 0;
+
+            // Sum all elements of the array
+            for (let i = 0; i < arr.length; i++) {
+              rightSum += arr[i];
+            }
+
+            // Iterate through the array and find the first equilibrium point
+            for (let i = 0; i < arr.length; i++) {
+              rightSum -= arr[i]; // Subtract the current element from the right sum
+
+              if (leftSum == rightSum) {
+                return i; // Return the current index as the first equilibrium point
+              }
+
+              leftSum += arr[i]; // Add the current element to the left sum
+            }
+
+            return -1; // Return -1 if no equilibrium point is found
+          }
+
+
+          let arr = [1, 3, 5, 2, 2];
+          let equilibriumPoint = findEquilibriumPoint(arr);
+
+          console.log(equilibriumPoint); // Output: 3
+
+          Actual output is coming 2 while run
+          </pre>
+        </div>
+      </div>
+      <div class="question">
+        <h2>Q9: Given an array having both positive and negative integers. The task is to compute the length of the largest subarray with sum 0. Javascript?</h2>
+        <div class="answer">
+          <pre>
+          Ans:
+
+          function maxLength(arr) {
+            const map = new Map();
+            let sum = 0;
+            let maxLength = 0;
+
+            for (let i = 0; i < arr.length; i++) {
+              sum += arr[i];
+              if (sum === 0) {
+                maxLength = i + 1;
+              }
+              if (map.has(sum)) {
+                maxLength = Math.max(maxLength, i - map.get(sum));
+              } else {
+                map.set(sum, i);
+              }
+            }
+
+            return maxLength;
+          }
+
+          const arr = [1, 2, -3, 3];
+          console.log(maxLength(arr));  // 3 (the subarray [1, 2, -3] has sum 0)
+          </pre>
+        </div>
+      </div>
+      <div class="question">
+        <h2>Q10: Array Subset of another array javascript?</h2>
+        <div class="answer">
+          <pre>
+          Ans: 
+
+
+          function isSubset(mainArr, subsetArr) {
+            return subsetArr.every(val => mainArr.includes(val));
+          }
+
+          console.log(isSubset([1, 2, 3, 4], [1, 2]));  // true
+          console.log(isSubset([1, 2, 3, 4], [1, 5]));  // false
+          console.log(isSubset([1, 2, 3, 4], [1, 2, 3, 4]));  // true
+
+          Underneath code is not working
+          This function will return true if every element in subsetArr is contained in mainArr, and false otherwise.
+          Alternatively, you can use the Array.prototype.isSubsetOf() method, which was added in JavaScript 1.8.5. This method returns a boolean indicating whether the array is a subset of the input array. Here's an example of how to use it:
+          console.log([1, 2].isSubsetOf([1, 2, 3, 4]));  // true
+          console.log([1, 5].isSubsetOf([1, 2, 3, 4]));  // false
+          console.log([1, 2, 3, 4].isSubsetOf([1, 2, 3, 4]));  // true
+          </pre>
+        </div>
+      </div>
+      <div class="question">
+        <h2>How can I track my order?</h2>
+        <div class="answer">
+          Once your order has been shipped, you will receive an email with a tracking number. You can also track your order by logging into your account on our website.
+        </div>
+      </div>
+      <div class="question">
+        <h2>How can I track my order?</h2>
+        <div class="answer">
+          Once your order has been shipped, you will receive an email with a tracking number. You can also track your order by logging into your account on our website.
+        </div>
+      </div>
+      <div class="question">
+        <h2>How can I track my order?</h2>
+        <div class="answer">
+          Once your order has been shipped, you will receive an email with a tracking number. You can also track your order by logging into your account on our website.
+        </div>
+      </div>
+      <div class="question">
+        <h2>How can I track my order?</h2>
+        <div class="answer">
+          Once your order has been shipped, you will receive an email with a tracking number. You can also track your order by logging into your account on our website.
+        </div>
+      </div>
+      <div class="question">
+        <h2>How can I track my order?</h2>
+        <div class="answer">
+          Once your order has been shipped, you will receive an email with a tracking number. You can also track your order by logging into your account on our website.
+        </div>
+      </div>
+      <div class="question">
+        <h2>How can I track my order?</h2>
+        <div class="answer">
+          Once your order has been shipped, you will receive an email with a tracking number. You can also track your order by logging into your account on our website.
+        </div>
+      </div>
+      <div class="question">
+        <h2>How can I track my order?</h2>
+        <div class="answer">
+          Once your order has been shipped, you will receive an email with a tracking number. You can also track your order by logging into your account on our website.
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

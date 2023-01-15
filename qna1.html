@@ -36,6 +36,7 @@
       <div class="question">
         <h2>Q1 : Given a sorted array of size N and an integer K, find the position at which K is present in the array using binary search javascript. ?</h2>
         <div class="answer">
+          <pre>
           function binarySearch(array, k) {
             let left = 0;
             let right = array.length - 1;
@@ -57,12 +58,13 @@
           const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
           const k = 5;
           console.log(binarySearch(array, k)); // Outputs: 4
-          
+        </pre>
         </div>
       </div>
       <div class="question">
         <h2>Q2: Given an array arr[] of positive integers of size N. Reverse every sub-array group of size K. javascript?</h2>
         <div class="answer">
+          <pre>
           Ans:
           function reverseSubArray(arr, k) {
             for (let i = 0; i < arr.length; i += k) {
@@ -81,12 +83,13 @@
           const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
           const k = 3;
           console.log(reverseSubArray(arr, k)); // Outputs: [3, 2, 1, 6, 5, 4, 9, 8, 7, 10]
-
+         </pre>
         </div>
       </div>
       <div class="question">
         <h2>Q3: Given two arrays A and B of equal size N, the task is to find if given arrays are equal or not. Two arrays are said to be equal if both of them contain the same set of elements, arrangements (or permutation) of elements may be different though.?</h2>
         <div class="answer">
+          <pre>
           Ans:
 
           function areArraysEqual(arr1, arr2) {
@@ -97,12 +100,13 @@
           function areArraysEqual(arr1, arr2) {
             return arr1.toString() === arr2.toString();
           }
-
+          </pre>
         </div>
       </div>
       <div class="question">
         <h2>Q4: Given an array of N integers. Find the first element that occurs at least K number of times. Javascript?</h2>
         <div class="answer">
+          <pre>
           Ans:
 
           function findFirstElement(arr, K) {
@@ -129,12 +133,13 @@
           const K = 3;
 
           console.log(findFirstElement(arr, K)); // Output: 1…
-
+          </pre>
         </div>
       </div>
       <div class="question">
         <h2>Q5: Given an array of size N-1 such that it only contains distinct integers in the range of 1 to N. Find the missing element. Javascript ?</h2>
         <div class="answer">
+          <pre>
           Ans: 
 
           You can use the following approach to find the missing element in the array:
@@ -159,7 +164,7 @@
           let arr = [1, 2, 3, 5, 6, 7]; // missing element is 4
           let N = 7;
           console.log(findMissingElement(arr, N)); // prints 4
-
+          </pre>
         </div>
       </div>
       <div class="question">
@@ -171,6 +176,7 @@
       <div class="question">
         <h2>How can I track my order?</h2>
         <div class="answer">
+          <pre>
           Ans: 
 
           function sortArray(arr) {
@@ -196,12 +202,13 @@
           let arr = [2, 1, 0, 2, 1, 0];
 
           console.log(sortArray(arr));
-
+          </pre>
         </div>
       </div>
       <div class="question">
         <h2>Q7: ​​ Given an array A of positive integers. Your task is to find the leaders in the array. An element of array is leader if it is greater than or equal to all the elements to its right side. The rightmost element is always a leader.?</h2>
         <div class="answer">
+          <pre>
           Ans:
 
           function findLeaders(arr) {
@@ -225,7 +232,7 @@
 
           const arr = [16, 17, 4, 3, 5, 2];
           console.log(findLeaders(arr)); // prints [17, 5, 2]
-
+          </pre>
         </div>
       </div>
       <div class="question">
@@ -233,6 +240,7 @@
           Equilibrium Point in an array is a position such that the sum of elements before it is equal to the sum of elements after it.?
           </h2>
         <div class="answer">
+          <pre>
           Ans:
 
           function findEquilibriumPoint(arr) {
@@ -265,12 +273,13 @@
           console.log(equilibriumPoint); // Output: 3
 
           Actual output is coming 2 while run
-
+          </pre>
         </div>
       </div>
       <div class="question">
         <h2>Q9: Given an array having both positive and negative integers. The task is to compute the length of the largest subarray with sum 0. Javascript?</h2>
         <div class="answer">
+          <pre>
           Ans:
 
           function maxLength(arr) {
@@ -295,12 +304,13 @@
 
           const arr = [1, 2, -3, 3];
           console.log(maxLength(arr));  // 3 (the subarray [1, 2, -3] has sum 0)
-
+          </pre>
         </div>
       </div>
       <div class="question">
         <h2>Q10: Array Subset of another array javascript?</h2>
         <div class="answer">
+          <pre>
           Ans: 
 
 
@@ -318,49 +328,7 @@
           console.log([1, 2].isSubsetOf([1, 2, 3, 4]));  // true
           console.log([1, 5].isSubsetOf([1, 2, 3, 4]));  // false
           console.log([1, 2, 3, 4].isSubsetOf([1, 2, 3, 4]));  // true
-
-        </div>
-      </div>
-      <div class="question">
-        <h2>How can I track my order?</h2>
-        <div class="answer">
-          Once your order has been shipped, you will receive an email with a tracking number. You can also track your order by logging into your account on our website.
-        </div>
-      </div>
-      <div class="question">
-        <h2>How can I track my order?</h2>
-        <div class="answer">
-          Once your order has been shipped, you will receive an email with a tracking number. You can also track your order by logging into your account on our website.
-        </div>
-      </div>
-      <div class="question">
-        <h2>How can I track my order?</h2>
-        <div class="answer">
-          Once your order has been shipped, you will receive an email with a tracking number. You can also track your order by logging into your account on our website.
-        </div>
-      </div>
-      <div class="question">
-        <h2>How can I track my order?</h2>
-        <div class="answer">
-          Once your order has been shipped, you will receive an email with a tracking number. You can also track your order by logging into your account on our website.
-        </div>
-      </div>
-      <div class="question">
-        <h2>How can I track my order?</h2>
-        <div class="answer">
-          Once your order has been shipped, you will receive an email with a tracking number. You can also track your order by logging into your account on our website.
-        </div>
-      </div>
-      <div class="question">
-        <h2>How can I track my order?</h2>
-        <div class="answer">
-          Once your order has been shipped, you will receive an email with a tracking number. You can also track your order by logging into your account on our website.
-        </div>
-      </div>
-      <div class="question">
-        <h2>How can I track my order?</h2>
-        <div class="answer">
-          Once your order has been shipped, you will receive an email with a tracking number. You can also track your order by logging into your account on our website.
+          </pre>
         </div>
       </div>
     </div>

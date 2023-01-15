@@ -11,7 +11,7 @@ body {
   }
   
   .faq-container {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
   }
   
@@ -29,7 +29,7 @@ body {
   
   .answer {
     padding: 10px 20px;
-    font-size: 0.9em;
+    font-size: 1.5em;
     line-height: 1.5em;
     display: none;
   }
